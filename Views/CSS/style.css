@@ -1,0 +1,338 @@
+@font-face {
+  font-family: sans;
+  src: url(FONT/ModernSans-Light.otf);
+
+  font-family: coco;
+  src: url(FONT/Cocogoose-Pro-Bold-trial.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f1f1f1;
+  font-family: sans;
+}
+
+header {
+  background: #1f2e85;
+  color: #fff;
+  width: 100%;
+  padding: 1px 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 20px #b5b5b5;
+  position: sticky;
+  top: 0;
+}
+
+header .tienda {
+  display: flex;
+  align-items: center;
+}
+
+header .icono {
+  width: 12vh;
+  height: 12vh;
+  margin: 5px 0;
+  border-radius: 50%;
+}
+
+header .icono img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+header h1 {
+  font-family: coco;
+  font-size: 3rem;
+  text-shadow: 0 6px 4px #2d2d2d;
+}
+
+/*----- Menu Lateral -----*/
+
+.btn-menu label {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.btn-menu label:hover {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 6px 1px #2d2d2d);
+  transition: all 0.5s ease;
+}
+
+#btn-menu {
+  display: none;
+}
+.container-menu {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+#btn-menu:checked ~ .container-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.cont-menu {
+  width: 100%;
+  max-width: 250px;
+  background: #1f2e85;
+  min-height: 100vh;
+  position: relative;
+  transition: all 500ms ease;
+  transform: translateX(-100%);
+}
+#btn-menu:checked ~ .container-menu .cont-menu {
+  transform: translateX(0%);
+}
+.cont-menu nav {
+  transform: translateY(15%);
+}
+.cont-menu nav a {
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  color: #fff;
+  border-left: 5px solid transparent;
+  transition: all 400ms ease;
+}
+/* Opciones del Menu cuando se pasa el mouse da un efecto */
+.cont-menu nav a:hover {
+  border-left: 5px solid #fff;
+  background-color: #00000046;
+  box-shadow: 0 4px 6px #2d2d2d;
+}
+.cont-menu label {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+/*Fin de Menù lateral*/
+/*----- Fin del Estilo de la Cabecera -----*/
+
+/*----- Estilos para el Contenido de la Pagina -----*/
+main {
+  max-width: 150vh;
+  margin: 5rem auto;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 2rem;
+  padding: 0.5rem 0;
+}
+
+/*----- Titulo para ubicar al usuario -----*/
+main .titulo {
+  background: none;
+  box-shadow: none;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 0 5px 3px #b2b2b2;
+}
+/*----- Fin de estilos del Titulo -----*/
+
+/*----- Estilos de las cajas para los contenidos -----*/
+
+main div,
+main section {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 0.3rem;
+  box-shadow: 0 4px 4px #b1b1b1;
+}
+
+main div h2 {
+  text-align: center;
+}
+
+/*----- Estilos para div con imagenes dentro -----*/
+/*----- Este es un div con la clase imagen es para personalizar solamente este div -----*/
+.imagen {
+  display: flex;
+  flex-direction: row;
+  gap: 1.4rem;
+  align-items: center;
+  height: 30rem;
+  width: 100%;
+  overflow-x: scroll;
+}
+.imagen div {
+  border: 0.5px solid #ccc; /* <--- Modificar no agarra el width investigar por que? */
+  width: 500px;
+  height: 330px;
+}
+
+.imagen div img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/*----- Fin de Estilos de las cajas para el Contenido de la Pagina -----*/
+
+/*----- Estilos de Botones de Opciones -----*/
+
+main .option {
+  display: flex;
+  column-gap: 3rem;
+  justify-content: space-evenly;
+}
+
+main .option button,
+main .option label {
+  width: 7rem;
+  font-size: 1em;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.5rem 0.2rem;
+  background: #273374;
+  text-align: center;
+}
+
+main .option button:hover {
+  font-weight: bold;
+  background: #1e2a6f;
+}
+
+/*----- Fin de los estilos para los botones de opciones -----*/
+
+/*----- Formulario de Ventas Registro de Producto -----*/
+
+main .option-1 {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+main .option-1 .cerrar {
+  color: #000;
+  font-size: 18px;
+  cursor: pointer;
+  top: 1em;
+  right: 1.2em;
+  position: absolute;
+  align-self: flex-start;
+}
+
+main .option-1 form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30rem;
+  height: 100%;
+  opacity: 1;
+  gap: 1rem;
+  font-size: 1em;
+  background: #fff;
+  border-radius: 0.2rem;
+  padding: 2rem;
+}
+
+a main .option-1 form input:not(main .option-1 form input[type="file"]) {
+  width: 20rem;
+  font-size: 1.2em;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+}
+
+main .option-1 form input[type="submit"] {
+  align-self: center;
+  background: #273374;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  cursor: pointer;
+  width: 10rem;
+  border-radius: 0.2rem;
+}
+
+main .option-1 form input[type="submit"]:hover {
+  font-weight: bold;
+  background: #1e2a6f;
+}
+/*----- Fin de los estilos del inventario de Registra Producto que se sobreponen -----*/
+
+/*----- Estilos para contenido oculto-----*/
+
+#create:checked ~ .option-1 {
+  position: relative;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+/*----- Fin de los estilos para contenido oculto -----*/
+
+/*----- Estilos para las Tablas de las paginas -----*/
+
+main div table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+main div table th,
+main div table td {
+  padding: 0.4rem;
+  border: 1px solid #b2b2b2;
+}
+main div table .product {
+  display: flex;
+  justify-content: space-around;
+}
+main div table .product a img {
+  max-height: 30px;
+  max-width: 30px;
+}
+/*----- Fin de los Estilos Adicionales -----*/
+
+/*----- Fin de Estilos del Contenido de la Pagina -----*/
+
+/*----- Estilos del Footer -----*/
+footer {
+  background: #1f2e85;
+  color: #fff;
+  width: 100%;
+  height: 13vh;
+  padding: 2px 2.5rem;
+  box-sizing: border-box;
+  row-gap: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer div {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer a:hover {
+  color: #b3b3b3;
+  text-decoration: none;
+  transition: all 0.7s ease;
+}
